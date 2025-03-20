@@ -46,6 +46,7 @@ enum FunctionType{
   Unknown =0;
   BM25 =1;
   TextEmbedding =2;
+  Rerank =3;
 }
 
 enum FieldState {
@@ -89,6 +90,11 @@ message FunctionSchema {
   repeated int64 output_field_ids = 8;
   repeated common.KeyValuePair params = 9;
 }
+
+message FunctionScore {
+    repeated FunctionSchema functions = 1;
+    repeated common.KeyValuePair params = 2;
+};
 
 /**
  * @brief Collection schema
